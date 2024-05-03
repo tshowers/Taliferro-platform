@@ -1,0 +1,18 @@
+<div class="card business-card" *ngIf="contact">
+    <img class="card-img-top" [src]="contact.images?.[0]?.src || 'assets/nophoto.jpg'" alt="Card image cap">
+    <div class="social-media" *ngIf="contact.socialMedia && contact.socialMedia.length" style="align-items: center;">
+        <span *ngFor="let sm of contact.socialMedia; let i = index">
+            <a href="{{sm.url}}" title="{{sm.platform}}"><i class="fa-brands fa-{{sm.platform.toLowerCase()}} fa-2x"></i></a>&nbsp; </span>
+    </div>
+    <div class="card-body text-center">
+        <h5 class="card-title">{{ contact.firstName }} {{ contact.middleName }} {{ contact.lastName }}</h5>
+        <div class="contact-icons">
+            <span *ngIf="contact.emailAddresses && contact.emailAddresses.length">
+                <a href="{{contact.emailAddresses[0].emailAddress}}" title="{{contact.emailAddresses[0].emailAddress}}"><i class="fa-regular fa-envelope fa-2x"></i></a> </span>
+            <span *ngIf="contact.phoneNumbers && contact.phoneNumbers.length"> &nbsp;
+                <a href="tel:{{contact.phoneNumbers[0].phoneNumber}}" title="{{contact.phoneNumbers[0].phoneNumber}}"><i class="fa-solid fa-phone fa-2x"></i></a>
+            </span>
+        </div>
+            <a href="#" class="btn btn-theme">View Record</a>
+    </div>
+</div>

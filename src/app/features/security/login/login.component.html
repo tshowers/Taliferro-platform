@@ -1,0 +1,24 @@
+<div class="container ta-vertical-center">
+    <div class="row justify-content-md-center ta-row">
+        <div class="col">
+            <div class="card pages-card">
+                <div class="card-body">
+                    <div class="h4 text-center text-theme"><strong>{{COMPANY_NAME}} Login</strong></div>
+                    <div class="small text-center text-dark"> Login to Account </div>
+                    <form #userForm="ngForm" (ngSubmit)="onSubmit();userForm.reset();" class="form-signin">
+                        <div class="form-group">
+                            <div class="input-group"> <span class="input-group-addon text-theme"><i class="fa fa-user"></i>
+                                </span> <input [(ngModel)]="emailAddress" #email="ngModel" type="email" id="emailAddress" name="email" autocomplete="current-password" class="form-control" placeholder="Email Address"> </div>
+                            <div [hidden]="email.valid || email.pristine" class="alert alert-danger"> Email Address is required </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group"> <span class="input-group-addon text-theme"><i class="fa fa-asterisk"></i></span> <input [(ngModel)]="password" #thePassword="ngModel" type="password" id="password" autocomplete="current-password" name="password" class="form-control" placeholder="Password"> </div>
+                            <div [hidden]="thePassword.valid || thePassword.pristine" class="alert alert-danger"> Password is required </div>
+                        </div>
+                        <div class="form-group form-actions"> <button class="btn  btn-theme login-btn " type="submit" [disabled]="!userForm.form.valid">Log In</button> </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
